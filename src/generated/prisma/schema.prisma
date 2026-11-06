@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js" // se estiver codando apenas com js preciso add o "-js"
+  output   = "../src/generated/prisma" // caminho da que a pasta generated sera criado qnd der um npx prisma generate
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Event {
+  id         String   @id @default(uuid()) @db.Uuid
+  title      String   @db.VarChar(50)
+  date       String   @db.VarChar(10)
+  location   String?  @db.VarChar(100)
+  start_time String   @db.VarChar(10)
+  end_time   String   @db.VarChar(10)
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  updated_at DateTime @default(now()) @db.Timestamp(6)
+
+  @@map("events")
+}

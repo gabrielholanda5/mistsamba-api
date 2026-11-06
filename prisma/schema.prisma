@@ -1,6 +1,6 @@
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js" // se estiver codando apenas com js preciso add o "-js"
+  output   = "../src/generated/prisma" // caminho da que a pasta generated sera criado qnd der um npx prisma generate
 }
 
 datasource db {
@@ -9,9 +9,9 @@ datasource db {
 }
 
 model Event {
-  id         String   @id @db.Uuid
+  id         String   @id @default(uuid()) @db.Uuid
   title      String   @db.VarChar(50)
-  date       DateTime @db.Timestamp(6)
+  date       String   @db.VarChar(10)
   location   String?  @db.VarChar(100)
   start_time String   @db.VarChar(10)
   end_time   String   @db.VarChar(10)
