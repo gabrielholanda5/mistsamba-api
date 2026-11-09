@@ -1,9 +1,11 @@
 {
   "name": "mistsamba-api",
   "version": "1.0.0",
+  "_comment": "Aqui eu posso escrever o que eu quiser sem quebrar o JSON - MUDEI O CAMPO MAIN APONTANDO PARA O ARQ PRINCIPAL E ADD UMA LINHA START NO SCRIPT",
   "description": "",
-  "main": "index.js",
+  "main": "app.js", 
   "scripts": {
+    "start": "npx prisma generate && node app.js", 
     "dev": "npx nodemon app.js"
   },
   "keywords": [],
